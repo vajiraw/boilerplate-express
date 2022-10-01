@@ -8,10 +8,7 @@ var myApp = require('./myApp');
 var express = require('express');
 var app = express();
 
-app.use((req, res, next) => {
-  console.log(req.method+" "+req.ip);  
-  next();
-})
+
 
 
 // using middleware muoount public folder

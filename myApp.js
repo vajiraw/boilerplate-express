@@ -6,6 +6,11 @@ require('dotenv').config()
 app.use("/public", express.static(__dirname + "/public"));
 
 
+// challenge 7
+app.use((req, res, next) => {
+  console.log(`${req.method} ${req.path} - ${req.ip} `);  
+  next();
+})
 
 
 
