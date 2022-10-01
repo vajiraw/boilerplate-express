@@ -46,7 +46,7 @@ app.get("/now", middleware, (req, res) => {
 app.get('/:word/echo',(req,res)=>{
   let {word} = req.params;
   console.log(word);
-  res.json({"word" : word})
+  res.json({"echo" : word})
 });
 
 
