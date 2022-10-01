@@ -17,9 +17,6 @@ app.use((req, res, next) => {
   next();
 })
 
-
-
-
 console.log("Hello World")
 
 app.get('/',(req, res) =>{
@@ -42,12 +39,22 @@ app.get("/now", middleware, (req, res) => {
   });
 });
 
-
+// echo word back to client fcc 
 app.get('/:word/echo',(req,res)=>{
   let {word} = req.params;
   console.log(word);
   res.json({"echo" : word})
 });
+
+//Get Query Parameter Input from the Client
+app.get('/name',(req,res)=>{
+  const first = req.query.first;
+  const last  = req.query.last;
+  console.log(first,last)
+  res.json({
+    name: `${first} ${last}`
+  });
+})
 
 
   
