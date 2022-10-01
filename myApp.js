@@ -6,7 +6,7 @@ require('dotenv').config()
 app.use("/public", express.static(__dirname + "/public"));
 
 app.use((req, res, next) => {
-  console.log(req.method+" "+req.ip);
+  console.log(req.method+" "+req.ip);  
   next();
 })
 
