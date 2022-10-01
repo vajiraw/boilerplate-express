@@ -8,7 +8,7 @@ var myApp = require('./myApp');
 var express = require('express');
 var app = express();
 
-require('dotenv').config()
+
 
 // using middleware muoount public folder
 //app.use("/public", express.static(__dirname + "/public"));
