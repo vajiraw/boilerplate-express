@@ -2,6 +2,11 @@ let express = require('express');
 let app = express();
 require('dotenv').config()
 
+const middleware = (req, res, next) => {
+  req.time = new Date().toString();
+  next();
+};
+
 //app.use(express.static(__dirname + "/public"));
 app.use("/public", express.static(__dirname + "/public"));
 
@@ -11,6 +16,7 @@ app.use((req, res, next) => {
   console.log(`${req.method} ${req.path} - ${req.ip} `);  
   next();
 })
+
 
 
 
@@ -28,6 +34,15 @@ app.get('/json',(req,res)=>{
   }
   res.json({"message": message} );
 })
+
+
+
+
+app.get("/now", middleware, (req, res) => {
+  res.send({
+    time: req.time
+  });
+});
 
 
   
