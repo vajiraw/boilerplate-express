@@ -2,6 +2,10 @@ let express = require('express');
 let app = express();
 require('dotenv').config()
 
+let bodyParser = require('body-parser')
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 const middleware = (req, res, next) => {
   req.time = new Date().toString();
   next();
@@ -55,6 +59,13 @@ app.get('/name',(req,res)=>{
     name: `${first} ${last}`
   });
 })
+
+app.post('/name',(req,res)=>{
+  let firstName = req.body.first;
+  let lastName = req.body.last;
+  res.send({name: firstName + ` `+ lastName})
+});
+
 
 
   
